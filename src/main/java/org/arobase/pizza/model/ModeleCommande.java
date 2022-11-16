@@ -1,4 +1,5 @@
 package org.arobase.pizza.model;
+
 import org.arobase.pizza.classes.*;
 import org.arobase.pizza.vue.Observateur;
 
