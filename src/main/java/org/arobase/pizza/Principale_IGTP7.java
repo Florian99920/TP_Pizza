@@ -14,6 +14,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import org.arobase.pizza.vue.VueCommIm;
+import org.arobase.pizza.vue.VueCommPrix;
+import org.arobase.pizza.vue.VueCommText;
 
 public class Principale_IGTP7 extends Application {
 
@@ -55,7 +58,7 @@ public class Principale_IGTP7 extends Application {
         pcentral.setMaxHeight(300);
 
         //--> Le panneau avec la vision des images des pizzas
-        PanneauImages visionComm = new PanneauImages();
+        VueCommIm visionComm = new VueCommIm();
         pcentral.setCenter(visionComm);
         //--> Le panneau contenant les boutons des ingredrients
         GridPane pingr= new GridPane();
@@ -76,16 +79,14 @@ public class Principale_IGTP7 extends Application {
         BorderPane psud= new BorderPane();
         psud.setMinHeight(300);
 
-        Label commtxt= new Label("Aucune commande en cours");
-        commtxt.setFont(new Font("Times", 14));
+        VueCommText commtxt= new VueCommText();
+
       //  commtxt.setPreferredSize(new Dimension(935,200));
         psud.setCenter(commtxt);
         //Mettre un panneau VBox
         VBox vb= new VBox();
         vb.setAlignment(Pos.CENTER);
-        Label txtBas = new Label("Pas de commande en cours");
-        txtBas.setFont(new Font("Times", 16));
-        txtBas.setTextAlignment(TextAlignment.CENTER);
+        VueCommPrix txtBas = new VueCommPrix();
         vb.getChildren().add(txtBas);
         psud.setBottom(vb);
         bp.setBottom(psud);

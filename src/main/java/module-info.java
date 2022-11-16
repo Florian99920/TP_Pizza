@@ -6,4 +6,6 @@ module org.arobase.pizza {
 
     opens org.arobase.pizza to javafx.fxml;
     exports org.arobase.pizza;
+    exports org.arobase.pizza.vue;
+    opens org.arobase.pizza.vue to javafx.fxml;
 }

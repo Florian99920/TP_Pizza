@@ -1,5 +1,5 @@
 
-package org.arobase.pizza;
+package org.arobase.pizza.vue;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -7,15 +7,18 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import org.arobase.pizza.MyImage;
+import org.arobase.pizza.controler.Sujet;
+import org.arobase.pizza.vue.Observateur;
 
 
 /**
  * A modifier
  *
  */
-public class PanneauImages extends GridPane {
+public class VueCommIm extends GridPane implements Observateur {
 
-	public PanneauImages(){
+	public VueCommIm(){
 		super();
 		this.setPadding(new Insets(15));
 		this.setHgap(25);
@@ -30,5 +33,10 @@ public class PanneauImages extends GridPane {
 			rect.setStroke(Color.BLACK);
 			myIm.getSp().getChildren().add(rect);
 		}
+	}
+
+	@Override
+	public void actualiser(Sujet s) {
+		// TODO Auto-generated method stub
 	}
 }
