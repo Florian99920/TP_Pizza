@@ -14,6 +14,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import org.arobase.pizza.controller.ControlDebutCommande;
+import org.arobase.pizza.controller.ControlPizzaCour;
+import org.arobase.pizza.model.ModeleCommande;
 import org.arobase.pizza.vue.VueCommIm;
 import org.arobase.pizza.vue.VueCommPrix;
 import org.arobase.pizza.vue.VueCommText;
@@ -26,6 +29,8 @@ public class Principale_IGTP7 extends Application {
 
     @Override
     public void start(Stage stage) {
+
+        ModeleCommande modeleCommande = new ModeleCommande();
 
         String [] ingredients={"Fromage","Champignons","Chorizo","Oeuf","Oignons","Olives noires","Olives vertes","Roquette"};
        // String[] fidelite = {"Nouveau client", "Cliente avec carte", "Client adhérent"};
@@ -47,7 +52,11 @@ public class Principale_IGTP7 extends Application {
         choixFidelite.setValue("Nouveau client");
 
         Button  addPizzaCreme= new Button(" Ajouter une pizza fond creme ");
+        ControlDebutCommande controlPizzaCreme = new ControlDebutCommande("creme", modeleCommande);
+        addPizzaCreme.setOnAction(controlPizzaCreme);
         Button addPizzaTomate= new Button(" Ajouter une pizza fond tomate ");
+        ControlDebutCommande controlPizzaTomate = new ControlDebutCommande("tomate", modeleCommande);
+        addPizzaTomate.setOnAction(controlPizzaTomate);
         pnord.getChildren().addAll(choixFidelite, addPizzaCreme, addPizzaTomate);
         bp.setTop(pnord); //place pnord en haut de l'IG
 
@@ -58,7 +67,9 @@ public class Principale_IGTP7 extends Application {
         pcentral.setMaxHeight(300);
 
         //--> Le panneau avec la vision des images des pizzas
-        VueCommIm visionComm = new VueCommIm();
+        VueCommIm visionComm = new VueCommIm(modeleCommande );
+        ControlPizzaCour controlPizzaCour = new ControlPizzaCour(modeleCommande);
+        visionComm.setOnMouseClicked(controlPizzaCour);
         pcentral.setCenter(visionComm);
         //--> Le panneau contenant les boutons des ingredrients
         GridPane pingr= new GridPane();
@@ -79,14 +90,14 @@ public class Principale_IGTP7 extends Application {
         BorderPane psud= new BorderPane();
         psud.setMinHeight(300);
 
-        VueCommText commtxt= new VueCommText();
+        VueCommText commtxt= new VueCommText(modeleCommande );
 
       //  commtxt.setPreferredSize(new Dimension(935,200));
         psud.setCenter(commtxt);
         //Mettre un panneau VBox
         VBox vb= new VBox();
         vb.setAlignment(Pos.CENTER);
-        VueCommPrix txtBas = new VueCommPrix();
+        VueCommPrix txtBas = new VueCommPrix(modeleCommande );
         vb.getChildren().add(txtBas);
         psud.setBottom(vb);
         bp.setBottom(psud);

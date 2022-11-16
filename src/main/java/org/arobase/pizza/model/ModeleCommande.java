@@ -78,6 +78,8 @@ public class ModeleCommande implements Sujet {
         this.nbPizza += 1;
         // on change le num de la pizza courante
         this.numPizzaCourante = this.listePizza.indexOf(pizza);
+
+        this.notifierObservateur();
     }
 
 

@@ -7,6 +7,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import org.arobase.pizza.MyImage;
+import org.arobase.pizza.model.ModeleCommande;
 import org.arobase.pizza.model.Sujet;
 
 
@@ -16,8 +17,9 @@ import org.arobase.pizza.model.Sujet;
  */
 public class VueCommIm extends GridPane implements Observateur {
 
-	public VueCommIm(){
+	public VueCommIm(ModeleCommande m){
 		super();
+		m.enregistrerObservateur(this);
 		this.setPadding(new Insets(15));
 		this.setHgap(25);
 		this.setAlignment(Pos.CENTER);
