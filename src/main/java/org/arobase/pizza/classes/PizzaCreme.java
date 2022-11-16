@@ -1,6 +1,7 @@
-package com.example.demo.classes;
+package org.arobase.pizza.classes;
 
-import com.example.demo.MyImage;
+
+import org.arobase.pizza.MyImage;
 
 /**
  * classe representant une pizza base tomate

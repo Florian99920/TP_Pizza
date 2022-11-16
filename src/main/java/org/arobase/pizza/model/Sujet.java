@@ -1,6 +1,7 @@
-package com.example.demo.model;
+package org.arobase.pizza.model;
 
-import com.example.demo.vue.Observateur;
+
+import org.arobase.pizza.vue.Observateur;
 
 public interface Sujet {
     public void enregistrerObservateur(Observateur o);

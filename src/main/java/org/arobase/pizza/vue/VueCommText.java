@@ -3,7 +3,7 @@ package org.arobase.pizza.vue;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
-import org.arobase.pizza.controler.Sujet;
+import org.arobase.pizza.model.Sujet;
 
 public class VueCommText extends Label implements Observateur {
 

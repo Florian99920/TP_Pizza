@@ -1,4 +1,4 @@
-package com.example.demo.classes;
+package org.arobase.pizza.classes;
 
 public interface StrategyFidelite {
 

@@ -1,7 +1,6 @@
-package com.example.demo.model;
-
-import com.example.demo.classes.*;
-import com.example.demo.vue.Observateur;
+package org.arobase.pizza.model;
+import org.arobase.pizza.classes.*;
+import org.arobase.pizza.vue.Observateur;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.List;
 /**
  * classe representant le modele d'une commande
  */
-public class ModeleCommande implements Sujet{
+public class ModeleCommande implements Sujet {
 
 
     /**

@@ -1,9 +1,9 @@
-package com.example.demo.classes;
+package org.arobase.pizza.classes;
 
 /**
  * classe representant un nouveau client
  */
-public class ClientNouveau implements StrategyFidelite{
+public class ClientNouveau implements StrategyFidelite {
 
     public ClientNouveau(){};
 

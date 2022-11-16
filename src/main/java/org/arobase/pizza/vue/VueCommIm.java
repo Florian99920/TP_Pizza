@@ -1,4 +1,3 @@
-
 package org.arobase.pizza.vue;
 
 import javafx.geometry.Insets;
@@ -8,8 +7,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import org.arobase.pizza.MyImage;
-import org.arobase.pizza.controler.Sujet;
-import org.arobase.pizza.vue.Observateur;
+import org.arobase.pizza.model.Sujet;
 
 
 /**

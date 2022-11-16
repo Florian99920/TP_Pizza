@@ -2,7 +2,7 @@ package org.arobase.pizza.vue;
 
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
-import org.arobase.pizza.controler.Sujet;
+import org.arobase.pizza.model.Sujet;
 
 public class VueCommPrix extends Label implements Observateur {
 

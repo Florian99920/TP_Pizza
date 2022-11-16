@@ -1,9 +1,10 @@
-package com.example.demo.classes;
+package org.arobase.pizza.classes;
+
 
 /**
  * classe representant un client abonné
  */
-public class ClientAbonnement implements StrategyFidelite{
+public class ClientAbonnement implements StrategyFidelite {
 
     public ClientAbonnement(){};
 
