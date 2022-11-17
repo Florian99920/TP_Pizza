@@ -1,5 +1,6 @@
 package org.arobase.pizza.vue;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
@@ -11,11 +12,17 @@ public class VueCommText extends Label implements Observateur {
     public VueCommText(ModeleCommande m) {
         super("Aucune commande en cours");
         m.enregistrerObservateur(this);
-        this.setTextAlignment(TextAlignment.CENTER);
+        this.setPadding(new Insets(15));
+        this.setTextAlignment(TextAlignment.LEFT);
     }
 
     @Override
     public void actualiser(Sujet s) {
-        // TODO Auto-generated method stub
+        ModeleCommande m = (ModeleCommande) s;
+        if (m.getListePizza().isEmpty()) {
+            this.setText("Aucune commande en cours");
+        } else {
+            this.setText(m.getDescriptifCommande());
+        }
     }
 }

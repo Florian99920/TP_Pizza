@@ -89,11 +89,15 @@ public class Principale_IGTP7 extends Application {
         // du contenu de la commande et son prix
         BorderPane psud= new BorderPane();
         psud.setMinHeight(300);
+        psud.setPadding(new Insets(20, 0, 0, 10));
+
+        Label l1= new Label("Votre commande");
+        psud.setTop(l1);
 
         VueCommText commtxt= new VueCommText(modeleCommande );
 
       //  commtxt.setPreferredSize(new Dimension(935,200));
-        psud.setCenter(commtxt);
+        psud.setLeft(commtxt);
         //Mettre un panneau VBox
         VBox vb= new VBox();
         vb.setAlignment(Pos.CENTER);
