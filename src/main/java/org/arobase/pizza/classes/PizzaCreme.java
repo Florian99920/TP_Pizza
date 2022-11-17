@@ -57,7 +57,7 @@ public class PizzaCreme implements Pizza{
      * @return description de la pizza
      */
     @Override
-    public String GetDescription() {
+    public String getDescription() {
         return this.description;
     }
 }

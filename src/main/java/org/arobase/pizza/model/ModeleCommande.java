@@ -3,6 +3,7 @@ package org.arobase.pizza.model;
 import org.arobase.pizza.classes.*;
 import org.arobase.pizza.vue.Observateur;
 
+import java.nio.MappedByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -147,6 +148,25 @@ public class ModeleCommande implements Sujet {
      */
     public void setFidelite(StrategyFidelite f){
         this.taux = f;
+    }
+
+
+    /**
+     * desription de la commande
+     * @return la description de la commande
+     */
+    public String getDescriptifCommande(){
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < this.listePizza.size(); i++){
+            Pizza pizzaCourante = this.listePizza.get(i);
+            s.append("Pizza n°").append(i+1);
+            s.append(" : ").append(pizzaCourante.getCout()).append(" euros\n");
+            s.append(pizzaCourante.getDescription()).append("\n");
+        }
+
+        return s.toString();
+
+
     }
 
 

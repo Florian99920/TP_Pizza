@@ -24,7 +24,7 @@ public interface Pizza {
      * description de la pizza
      * @return description de la pizza
      */
-    public String GetDescription();
+    public String getDescription();
 
 
 }
