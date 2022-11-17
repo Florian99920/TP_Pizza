@@ -79,7 +79,7 @@ public class ModeleCommande implements Sujet {
         // on change le num de la pizza courante
         this.numPizzaCourante = this.listePizza.indexOf(pizza);
 
-        this.notifierObservateur();
+        this.calculPrixCommande();
     }
 
 
@@ -97,6 +97,8 @@ public class ModeleCommande implements Sujet {
 
         // on multiplie ensuite le prix de la commande par le taux de fideliter du client
         this.prixCommande *= this.taux.getTaux();
+
+        this.notifierObservateur();
     }
 
 
@@ -138,6 +140,7 @@ public class ModeleCommande implements Sujet {
      */
     public void setNumPizzaCourante(int i){
         this.numPizzaCourante = i;
+        this.notifierObservateur();
     }
 
 
@@ -147,6 +150,7 @@ public class ModeleCommande implements Sujet {
      */
     public void setFidelite(StrategyFidelite f){
         this.taux = f;
+        this.notifierObservateur();
     }
 
 

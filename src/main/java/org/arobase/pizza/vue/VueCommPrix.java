@@ -15,6 +15,11 @@ public class VueCommPrix extends Label implements Observateur {
 
     @Override
     public void actualiser(Sujet s) {
-        // TODO Auto-generated method stub
+        ModeleCommande m = (ModeleCommande) s;
+        if (m.getListePizza().isEmpty()) {
+            this.setText("Pas de commande en cours");
+        } else {
+            this.setText("Prix total : " + m.getPrixCommande() + " euros");
+        }
     }
 }

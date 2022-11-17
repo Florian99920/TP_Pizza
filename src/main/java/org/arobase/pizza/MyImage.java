@@ -16,7 +16,7 @@ public class MyImage {
     public MyImage(String path, StackPane s) {
         try{
             //this.image = new Image(MainLogo.class.getResource(path).toString());
-            image = new Image(path);
+            image = new Image("file:src/main/resources/org/arobase/pizza/" + path);
             this.imPath=path;
             if (s==null) {
                 this.sp=new StackPane();
