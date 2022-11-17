@@ -18,7 +18,7 @@ public class VueCommPrix extends Label implements Observateur {
         if (m.getListePizza().isEmpty()) {
             this.setText("Pas de commande en cours");
         } else {
-            this.setText("Prix total : " + m.getPrixCommande() + " euros");
+            this.setText("Prix total : " + String.format("%.2f", m.getPrixCommande()) + " euros");
         }
     }
 }

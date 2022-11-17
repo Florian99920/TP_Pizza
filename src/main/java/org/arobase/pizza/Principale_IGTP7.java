@@ -15,6 +15,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import org.arobase.pizza.controller.ControlDebutCommande;
+import org.arobase.pizza.controller.ControlFidelite;
 import org.arobase.pizza.controller.ControlPizzaCour;
 import org.arobase.pizza.model.ModeleCommande;
 import org.arobase.pizza.vue.VueCommIm;
@@ -48,8 +49,10 @@ public class Principale_IGTP7 extends Application {
         ComboBox<String> choixFidelite = new ComboBox<String>( );
         choixFidelite .getItems().add("Nouveau client");
         choixFidelite .getItems().add("Client adhérent");
-        choixFidelite .getItems().add("Cliente avec carte");
+        choixFidelite .getItems().add("Client avec carte");
         choixFidelite.setValue("Nouveau client");
+
+        choixFidelite.setOnAction(new ControlFidelite(modeleCommande));
 
         Button  addPizzaCreme= new Button(" Ajouter une pizza fond creme ");
         ControlDebutCommande controlPizzaCreme = new ControlDebutCommande("creme", modeleCommande);

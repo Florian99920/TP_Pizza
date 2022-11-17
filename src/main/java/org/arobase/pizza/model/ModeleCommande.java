@@ -150,7 +150,7 @@ public class ModeleCommande implements Sujet {
      */
     public void setFidelite(StrategyFidelite f){
         this.taux = f;
-        this.notifierObservateur();
+        this.calculPrixCommande();
     }
 
 
@@ -171,6 +171,7 @@ public class ModeleCommande implements Sujet {
 
 
     }
+
 
 
 
