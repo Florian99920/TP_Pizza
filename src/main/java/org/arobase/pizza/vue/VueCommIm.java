@@ -23,7 +23,7 @@ public class VueCommIm extends GridPane implements Observateur {
 		m.enregistrerObservateur(this);
 		this.setPadding(new Insets(15));
 		this.setHgap(25);
-		this.setAlignment(Pos.CENTER);
+		this.setAlignment(Pos.BASELINE_LEFT);
 		}
 
 	@Override
