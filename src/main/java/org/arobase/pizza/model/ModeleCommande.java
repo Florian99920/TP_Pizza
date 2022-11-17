@@ -137,8 +137,10 @@ public class ModeleCommande implements Sujet {
      * @param i numero de la pizza
      */
     public void setNumPizzaCourante(int i){
-        this.numPizzaCourante = i;
-        this.notifierObservateur();
+        if (this.listePizza.size() > i){
+            this.numPizzaCourante = i;
+            this.notifierObservateur();
+        }
     }
 
 
