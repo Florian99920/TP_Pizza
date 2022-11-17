@@ -11,7 +11,6 @@ public class VueCommText extends Label implements Observateur {
     public VueCommText(ModeleCommande m) {
         super("Aucune commande en cours");
         m.enregistrerObservateur(this);
-        this.setFont(new Font("Times", 14));
         this.setTextAlignment(TextAlignment.CENTER);
     }
 

@@ -10,7 +10,6 @@ public class VueCommPrix extends Label implements Observateur {
     public VueCommPrix(ModeleCommande m) {
         super("Pas de commande en cours");
         m.enregistrerObservateur(this);
-        this.setFont(new Font("Times", 16));
     }
 
     @Override

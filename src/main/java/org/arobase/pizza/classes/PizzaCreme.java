@@ -29,7 +29,7 @@ public class PizzaCreme implements Pizza{
      */
     public PizzaCreme(){
         this.prix = 6;
-        this.nomIm = "fond_tomate.png";
+        this.nomIm = "fond_creme.png";
         this.description = "pizza base creme";
     }
 
