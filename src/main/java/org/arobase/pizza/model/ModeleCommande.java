@@ -172,6 +172,40 @@ public class ModeleCommande implements Sujet {
 
     }
 
+    public void choixIngredient(int choix){
+        Pizza pizzaCourante = this.listePizza.get(this.numPizzaCourante);
+
+        switch (choix) {
+            case 0:
+                pizzaCourante = new PizzaFromage(pizzaCourante);
+                break;
+            case 1:
+                pizzaCourante = new PizzaChampignons(pizzaCourante);
+                break;
+            case 2:
+                pizzaCourante = new PizzaChorizo(pizzaCourante);
+                break;
+            case 3:
+                pizzaCourante = new PizzaOeuf(pizzaCourante);
+                break;
+            case 4:
+                pizzaCourante = new PizzaOignons(pizzaCourante);
+                break;
+            case 5:
+                pizzaCourante = new PizzaOlivesNoires(pizzaCourante);
+                break;
+            case 6:
+                pizzaCourante = new PizzaOlivesVertes(pizzaCourante);
+                break;
+            case 7:
+                pizzaCourante = new PizzaRoquette(pizzaCourante);
+                break;
+        }
+
+        this.listePizza.set(this.numPizzaCourante, pizzaCourante);
+
+        this.calculPrixCommande();
+    }
 
 
 

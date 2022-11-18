@@ -16,6 +16,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import org.arobase.pizza.controller.ControlDebutCommande;
 import org.arobase.pizza.controller.ControlFidelite;
+import org.arobase.pizza.controller.ControlIngredients;
 import org.arobase.pizza.controller.ControlPizzaCour;
 import org.arobase.pizza.model.ModeleCommande;
 import org.arobase.pizza.vue.VueCommIm;
@@ -83,6 +84,8 @@ public class Principale_IGTP7 extends Application {
             bIngr[i]=new Button(ingredients[i]);
             bIngr[i].setMinSize(100,40);
             pingr.add(bIngr[i],i,0);
+            ControlIngredients controlIngredients = new ControlIngredients(i, modeleCommande);
+            bIngr[i].setOnAction(controlIngredients);
         }
        // pingr.setPreferredSize(new Dimension(935,50));
         pcentral.setBottom(pingr);
