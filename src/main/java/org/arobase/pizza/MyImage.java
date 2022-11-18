@@ -52,7 +52,7 @@ public class MyImage {
      */
     public void superposer(String imageAAjouter) {
         // on charge l'image
-        image = new Image(imageAAjouter);
+        image = new Image("file:src/main/resources/org/arobase/pizza/" + imageAAjouter);
         ImageView img = new ImageView();
         img.setImage(image);
         sp.getChildren().add(img);
