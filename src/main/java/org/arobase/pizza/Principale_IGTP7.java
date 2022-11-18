@@ -14,10 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import org.arobase.pizza.controller.ControlDebutCommande;
-import org.arobase.pizza.controller.ControlFidelite;
-import org.arobase.pizza.controller.ControlIngredients;
-import org.arobase.pizza.controller.ControlPizzaCour;
+import org.arobase.pizza.controller.*;
 import org.arobase.pizza.model.ModeleCommande;
 import org.arobase.pizza.vue.VueCommIm;
 import org.arobase.pizza.vue.VueCommPrix;
@@ -58,10 +55,16 @@ public class Principale_IGTP7 extends Application {
         Button  addPizzaCreme= new Button(" Ajouter une pizza fond creme ");
         ControlDebutCommande controlPizzaCreme = new ControlDebutCommande("creme", modeleCommande);
         addPizzaCreme.setOnAction(controlPizzaCreme);
+
         Button addPizzaTomate= new Button(" Ajouter une pizza fond tomate ");
         ControlDebutCommande controlPizzaTomate = new ControlDebutCommande("tomate", modeleCommande);
         addPizzaTomate.setOnAction(controlPizzaTomate);
-        pnord.getChildren().addAll(choixFidelite, addPizzaCreme, addPizzaTomate);
+
+        Button retirerPizza = new Button(" Retirer la dernière pizza ");
+        ControlRetirerPizza controlRetirerPizza = new ControlRetirerPizza(modeleCommande);
+        retirerPizza.setOnAction(controlRetirerPizza);
+
+        pnord.getChildren().addAll(choixFidelite, addPizzaCreme, addPizzaTomate, retirerPizza);
         bp.setTop(pnord); //place pnord en haut de l'IG
 
 
@@ -82,11 +85,18 @@ public class Principale_IGTP7 extends Application {
         bIngr= new Button[8];
         for(int i=0;i<ingredients.length;i++){
             bIngr[i]=new Button(ingredients[i]);
-            bIngr[i].setMinSize(100,40);
+            bIngr[i].setMinSize(75,40);
             pingr.add(bIngr[i],i,0);
             ControlIngredients controlIngredients = new ControlIngredients(i, modeleCommande);
             bIngr[i].setOnAction(controlIngredients);
         }
+
+        Button retirerIngredient = new Button(" Retirer le dernier ingrédient ");
+        retirerIngredient.setMinSize(75, 40);
+        ControlRetirerIngredient controlRetirerIngredient = new ControlRetirerIngredient(modeleCommande);
+        retirerIngredient.setOnAction(controlRetirerIngredient);
+        pingr.add(retirerIngredient, 8, 0);
+
        // pingr.setPreferredSize(new Dimension(935,50));
         pcentral.setBottom(pingr);
         bp.setCenter(pcentral); //place pcentral au centre de l'IG

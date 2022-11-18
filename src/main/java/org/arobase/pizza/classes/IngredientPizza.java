@@ -27,6 +27,10 @@ public class IngredientPizza implements Pizza {
         return im;
     }
 
+    public Pizza getPizza() {
+        return this.pizza;
+    }
+
     @Override
     public double getCout() {
         return this.pizza.getCout() + this.prix;

@@ -163,7 +163,7 @@ public class ModeleCommande implements Sujet {
         for (int i = 0; i < this.listePizza.size(); i++){
             Pizza pizzaCourante = this.listePizza.get(i);
             s.append("Pizza n°").append(i+1);
-            s.append(" : ").append(pizzaCourante.getCout()).append(" euros\n");
+            s.append(" : ").append(String.format("%.2f", pizzaCourante.getCout())).append(" euros\n");
             s.append(pizzaCourante.getDescription()).append("\n");
         }
 
@@ -205,6 +205,31 @@ public class ModeleCommande implements Sujet {
         this.listePizza.set(this.numPizzaCourante, pizzaCourante);
 
         this.calculPrixCommande();
+    }
+
+
+    public void retirerDernierePizza(){
+        if (this.nbPizza > 0){
+            this.listePizza.remove(this.nbPizza-1);
+            this.nbPizza -= 1;
+            if (this.listePizza.size() == this.numPizzaCourante){
+                this.numPizzaCourante -= 1;
+            }
+            this.calculPrixCommande();
+        }
+    }
+
+
+    public void retirerDernierIngredient(){
+        if (this.nbPizza > 0) {
+            Pizza pizzaCourante = this.listePizza.get(this.numPizzaCourante);
+        try {
+            IngredientPizza ingredient = (IngredientPizza) pizzaCourante;
+            pizzaCourante = ingredient.getPizza();
+            this.listePizza.set(this.numPizzaCourante, pizzaCourante);
+            this.calculPrixCommande();
+        } catch (Exception e) {}
+        }
     }
 
 
