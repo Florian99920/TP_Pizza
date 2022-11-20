@@ -60,11 +60,15 @@ public class Principale_IGTP7 extends Application {
         ControlDebutCommande controlPizzaTomate = new ControlDebutCommande("tomate", modeleCommande);
         addPizzaTomate.setOnAction(controlPizzaTomate);
 
+        Button  addPizzaFromage= new Button(" Ajouter une pizza fond fromage blanc ");
+        ControlDebutCommande controlPizzaFromageBlanc = new ControlDebutCommande("fromage", modeleCommande);
+        addPizzaFromage.setOnAction(controlPizzaFromageBlanc);
+
         Button retirerPizza = new Button(" Retirer la dernière pizza ");
         ControlRetirerPizza controlRetirerPizza = new ControlRetirerPizza(modeleCommande);
         retirerPizza.setOnAction(controlRetirerPizza);
 
-        pnord.getChildren().addAll(choixFidelite, addPizzaCreme, addPizzaTomate, retirerPizza);
+        pnord.getChildren().addAll(choixFidelite, addPizzaCreme, addPizzaTomate, addPizzaFromage, retirerPizza);
         bp.setTop(pnord); //place pnord en haut de l'IG
 
 
@@ -111,6 +115,7 @@ public class Principale_IGTP7 extends Application {
         psud.setTop(l1);
 
         VueCommText commtxt= new VueCommText(modeleCommande );
+        Button btnValider = new Button("Valider la commande");
 
       //  commtxt.setPreferredSize(new Dimension(935,200));
         psud.setLeft(commtxt);
@@ -118,7 +123,9 @@ public class Principale_IGTP7 extends Application {
         VBox vb= new VBox();
         vb.setAlignment(Pos.CENTER);
         VueCommPrix txtBas = new VueCommPrix(modeleCommande );
-        vb.getChildren().add(txtBas);
+        btnValider.setOnAction(new ControlValider(modeleCommande));
+        HBox hBox = new HBox(txtBas, btnValider);
+        vb.getChildren().add(hBox);
         psud.setBottom(vb);
         bp.setBottom(psud);
 

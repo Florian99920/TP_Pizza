@@ -41,6 +41,8 @@ public class ModeleCommande implements Sujet {
      */
     private StrategyFidelite taux;
 
+    private static int numeroCommande = 1;
+
 
 
 
@@ -63,13 +65,17 @@ public class ModeleCommande implements Sujet {
     public void ajouterPizza(String s){
         // s'il y a deja 4 pizza return
         if (this.nbPizza == 4){return;}
+        FabriquePizza f;
         // on cree la pizza en fonction de sa base
-        Pizza pizza;
+
         if (s.equalsIgnoreCase("tomate")){
-            pizza = new PizzaTomate();
+            f = new FabriquePizzaTomate();
+        }else if(s.equalsIgnoreCase("creme")){
+            f = new FabriquePizzaCreme();
         }else{
-            pizza = new PizzaCreme();
+            f = new FabriquePizzaFromageBlanc();
         }
+        Pizza pizza = f.fabriquerPizza();
         // on ajoute la pizza a la commande
         this.listePizza.add(pizza);
         // on augmente le nombre de pizza
@@ -229,6 +235,44 @@ public class ModeleCommande implements Sujet {
             this.listePizza.set(this.numPizzaCourante, pizzaCourante);
             this.calculPrixCommande();
         } catch (Exception e) {}
+        }
+    }
+
+
+    /**
+     * permet de valider la commande
+     */
+    public void validerCommande(){
+
+
+        // si il y a une commande en cours
+        if (!this.listePizza.isEmpty()) {
+
+
+            // on affiche la commande
+            StringBuilder s = new StringBuilder();
+            s.append("Commande n ").append(ModeleCommande.numeroCommande).append(" validee").append("\n");
+            for (Pizza pizza : this.listePizza) {
+                s.append(pizza.getDescription()).append(" - ").append(pizza.getCout()).append(" euros\n");
+            }
+            s.append("Total : ").append(this.prixCommande).append(" euros\n");
+            s.append("Merci pour votre commande !").append("\n");
+
+            System.out.println(s);
+
+            // le nombre de pizza est de 0
+            this.nbPizza = 0;
+            // le prix de la commande passe à 0
+            this.prixCommande = 0;
+            // la pizza courante est la 0 eme
+            this.numPizzaCourante = 0;
+            // on supprime toutes les pizzas de la liste des pizza
+            this.listePizza.removeAll(this.listePizza);
+            // on remet le taux par defaut (nouveau client)
+            this.taux = new ClientNouveau();
+
+            // on notifie les observateurs
+            this.notifierObservateur();
         }
     }
 

@@ -6,7 +6,7 @@ import org.arobase.pizza.MyImage;
 /**
  * classe representant une pizza base tomate
  */
-public class PizzaCreme implements Pizza{
+public class PizzaFromageBlanc implements Pizza{
 
     /**
      * prix de la pizza
@@ -27,10 +27,10 @@ public class PizzaCreme implements Pizza{
     /**
      * constructeur par defaut
      */
-    public PizzaCreme(){
-        this.prix = 6;
+    public PizzaFromageBlanc(){
+        this.prix = 7;
         this.nomIm = "fond_creme.png";
-        this.description = "pizza base creme";
+        this.description = "pizza base fromage blanc";
     }
 
 
