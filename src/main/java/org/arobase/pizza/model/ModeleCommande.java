@@ -179,7 +179,14 @@ public class ModeleCommande implements Sujet {
     }
 
     public void choixIngredient(int choix){
-        Pizza pizzaCourante = this.listePizza.get(this.numPizzaCourante);
+
+        Pizza pizzaCourante;
+
+        try {
+            pizzaCourante = this.listePizza.get(this.numPizzaCourante);
+        } catch (IndexOutOfBoundsException e) {
+            return;
+        }
 
         switch (choix) {
             case 0:
@@ -252,10 +259,8 @@ public class ModeleCommande implements Sujet {
             // on affiche la commande
             StringBuilder s = new StringBuilder();
             s.append("Commande n ").append(ModeleCommande.numeroCommande).append(" validee").append("\n");
-            for (Pizza pizza : this.listePizza) {
-                s.append(pizza.getDescription()).append(" - ").append(pizza.getCout()).append(" euros\n");
-            }
-            s.append("Total : ").append(this.prixCommande).append(" euros\n");
+            s.append(this.getDescriptifCommande());
+            s.append("Prix total : ").append(this.getPrixCommande()).append(" euros\n");
             s.append("Merci pour votre commande !").append("\n");
 
             System.out.println(s);

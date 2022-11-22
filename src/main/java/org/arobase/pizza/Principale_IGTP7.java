@@ -40,7 +40,7 @@ public class Principale_IGTP7 extends Application {
 
         // Panneau situe au nord de l'IG contenant les 2 boutons
         // permettant le choix de la base des pizzas et le niveau de fidelite du client
-        HBox pnord = new HBox(20);
+        HBox pnord = new HBox(5);
         pnord.setPadding(new Insets(10));
         pnord.setAlignment(Pos.CENTER);
 
@@ -117,7 +117,6 @@ public class Principale_IGTP7 extends Application {
         VueCommText commtxt= new VueCommText(modeleCommande );
         Button btnValider = new Button("Valider la commande");
 
-      //  commtxt.setPreferredSize(new Dimension(935,200));
         psud.setLeft(commtxt);
         //Mettre un panneau VBox
         VBox vb= new VBox();
@@ -125,12 +124,15 @@ public class Principale_IGTP7 extends Application {
         VueCommPrix txtBas = new VueCommPrix(modeleCommande );
         btnValider.setOnAction(new ControlValider(modeleCommande));
         HBox hBox = new HBox(txtBas, btnValider);
+        hBox.setAlignment(Pos.CENTER);
+        hBox.setSpacing(10);
         vb.getChildren().add(hBox);
         psud.setBottom(vb);
         bp.setBottom(psud);
 
 
         Scene scene = new Scene(bp,935,670);
+        commtxt.maxWidthProperty().bind(scene.widthProperty().add(-25));
         stage.setTitle("Commande de pizzas");
         stage.setScene(scene);
         stage.show();
